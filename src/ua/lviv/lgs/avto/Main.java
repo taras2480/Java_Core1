@@ -1,8 +1,11 @@
 package ua.lviv.lgs.avto;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Collection;
 
 public class Main {
 
@@ -13,14 +16,18 @@ public class Main {
 		int x = getRandomFromRange(2, 10);
 		int y = getRandomFromRange(2, 10);
 
-		Avto[][] mas = new Avto[x][y];
+		ArrayList mas = new ArrayList();
+		ArrayList mas3 = new ArrayList();
 
 		for (int i = 0; i < x; i++) {
+			ArrayList mas1 = new ArrayList();
 			for (int j = 0; j < y; j++) {
-				mas[i][j] = new Avto("Mazda", new Handlebar(getRandomFromRange(30, 40), "leather"),
-						new Engine(2 * getRandomFromRange(2, 6)), getRandomFromRange(200, 400),
+				Avto2 avto = new Avto2("Mazda", new Handlebar2(getRandomFromRange(30, 40), "leather"),
+						new Engine2(2 * getRandomFromRange(2, 6)), getRandomFromRange(200, 400),
 						getRandomFromRange(2000, 2018));
+				mas1.add(avto);
 			}
+			mas.add(mas1);
 		}
 
 		while (true) {
@@ -29,28 +36,33 @@ public class Main {
 			switch (scanner.nextInt()) {
 
 			case 1: {
-				System.out.println(Arrays.deepToString(mas));
+				System.out.println(mas);
 				break;
 
 			}
 
 			case 2: {
+				
+				Avto2 avto = new Avto2("Mazda", new Handlebar2(getRandomFromRange(30, 40), "leather"),
+						new Engine2(2 * getRandomFromRange(2, 6)), getRandomFromRange(200, 400),
+						getRandomFromRange(2000, 2018));
+
+				ArrayList mas2 = new ArrayList();
 
 				for (int i = 0; i < x; i++) {
+
 					for (int j = 0; j < y; j++) {
-						Arrays.fill(mas[i],
-								new Avto("Mazda", new Handlebar(getRandomFromRange(30, 40), "leather"),
-										new Engine(2 * getRandomFromRange(2, 4)), getRandomFromRange(200, 400),
-										getRandomFromRange(2000, 2018)));
-
-						System.out.println(Arrays.deepToString(mas));
-
+						mas2.add(avto);
 					}
+					mas3.add(mas2);
+					System.out.println(mas3);
+
+					break;
 				}
 
 			}
-
 			}
+
 		}
 	}
 
