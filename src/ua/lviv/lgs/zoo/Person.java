@@ -1,12 +1,11 @@
-package ua.lviv.lgs.myClass;
+package ua.lviv.lgs.zoo;
 
-
-
-public class BestWorkerForYear implements Comparable<BestWorkerForYear> {
-
+public class Person {
+	
 	private String name;
 	private int age;
-	public BestWorkerForYear(String name, int age) {
+	
+	public Person(String name, int age) {
 		super();
 		this.name = name;
 		this.age = age;
@@ -24,10 +23,6 @@ public class BestWorkerForYear implements Comparable<BestWorkerForYear> {
 		this.age = age;
 	}
 	@Override
-	public String toString() {
-		return "BestWorkerForYear [name=" + name + ", age=" + age + "]";
-	}
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -43,7 +38,7 @@ public class BestWorkerForYear implements Comparable<BestWorkerForYear> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BestWorkerForYear other = (BestWorkerForYear) obj;
+		Person other = (Person) obj;
 		if (age != other.age)
 			return false;
 		if (name == null) {
@@ -54,10 +49,11 @@ public class BestWorkerForYear implements Comparable<BestWorkerForYear> {
 		return true;
 	}
 	@Override
-	public int compareTo(BestWorkerForYear o) {
-
-		return this.name.compareTo(o.getName());
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + "]";
 	}
+	
+	
 	
 	
 
